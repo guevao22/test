@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js project to Azure Function App - dero-test
+name: Build and deploy Node.js project to Azure Function App - dero1
 
 on:
   push:
@@ -30,8 +30,6 @@ jobs:
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
           npm install
-          npm install -g npx
-          npx nginx
           npm run build --if-present
           npm run test --if-present
           popd
@@ -40,7 +38,7 @@ jobs:
         uses: Azure/functions-action@v1
         id: fa
         with:
-          app-name: 'dero-test'
+          app-name: 'dero1'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2209F5E41AB4512940F20DED31477EB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85C414F3F0B04171A9351D9B65D9B5EC }}
